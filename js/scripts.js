@@ -7,21 +7,37 @@ const sizesAvailable = {
 };
 const toppingsAvailable = ['cheese', 'olives', 'mushrooms', 'onions', 'peppers', 'tomatoes', 'pineapple','pepperoni', 'sausage', 'ham'];
 
-class Pizza {
-    constructor(size = 'small', toppings = []) {
-        this.size = size;
-        this.toppings = toppings;
-    }
-    pricePizza() {
-        let basePrice = sizesAvailable[this.size];
-        let topppingsPrice = this.toppings.length * basePrice/10;
-        let salesTax = .08 * (basePrice + topppingsPrice);
-        let totalPrice = basePrice + topppingsPrice + salesTax;
-        totalPrice = totalPrice.toFixed(2);
-        
-        return totalPrice;
-    }
-};
+//class method
+// class Pizza {
+//     constructor(size = 'small', toppings = []) {
+//         this.size = size;
+//         this.toppings = toppings;
+//     }
+//     pricePizza() {
+//         let basePrice = sizesAvailable[this.size];
+//         let topppingsPrice = this.toppings.length * basePrice/10;
+//         let salesTax = .08 * (basePrice + topppingsPrice);
+//         let totalPrice = basePrice + topppingsPrice + salesTax;
+//         totalPrice = totalPrice.toFixed(2);
+//         return totalPrice;
+//     }
+// }
+
+//prototype method
+function Pizza(size, toppings) {
+    this.size = size;
+    this.toppings = toppings;
+}
+
+Pizza.prototype.pricePizza = function() {
+    let basePrice = sizesAvailable[this.size];
+    let topppingsPrice = this.toppings.length * basePrice/10;
+    let salesTax = .08 * (basePrice + topppingsPrice);
+    let totalPrice = basePrice + topppingsPrice + salesTax;
+    totalPrice = totalPrice.toFixed(2);
+    return totalPrice;
+}
+
 
 // User Interface Logic
 
@@ -30,4 +46,6 @@ let myPizza = new Pizza('medium', ["anchovies", "pineapple"]);
 console.log("The price for your pizza is : $" + myPizza.pricePizza());
 let myPizza2 = new Pizza('large', ["anchovies", "pineapple", "pepperoni"]);
 console.log("The price for your pizza is : $" + myPizza2.pricePizza());
+let myPizza3 = new Pizza('small', ["anchovies", "pineapple", "pepperoni", "ham"]);
+console.log("The price for your pizza is : $" + myPizza3.pricePizza());
 

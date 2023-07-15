@@ -26,7 +26,7 @@ This page intended to showcase object oriented javascript.
 * install live server for vs code
 * open the repo in vs code
 * open index.htm in browser using live server
-* view the page via gitup pages here:  https://aaronvbrown.github.io/port/
+* view the page via gitup pages here:  https://aaronvbrown.github.io/pizza-parlor/
 
 
 ## Known Bugs
@@ -54,7 +54,13 @@ Code:
 ```javascript
 const myPizza = new Pizza('medium', ["anchovies", "pineapple", "pepperoni"]);
 ```
-Expected Output: Pizza { toppings: ["anchovies", "pineapple"], size: "large", 21.06 }
+Expected Output: Pizza { toppings: ["anchovies", "pineapple", "pepperoni"], size: "large", 21.06 }
+
+Code: 
+```javascript
+const myPizza = new Pizza('small', ["anchovies", "pineapple", "pepperoni", "ham"]);
+```
+Expected Output: Pizza { toppings: ["anchovies", "pineapple", "pepperoni", "ham"], size: "small", 15.12 }
 
 
 ## License
