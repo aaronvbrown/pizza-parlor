@@ -43,6 +43,12 @@ const myPizza = new Pizza('medium', ["anchovies", "pineapple"]);
 Expected Output: Pizza { toppings: ["anchovies", "pineapple"], size: "medium" }
 Keep in mind that the Describe statement is listed once, for a single function. If there are multiple pieces of functionality that your Pizza() constructor function handles, you should write multiple tests (as many as are needed) under the same Describe block. If you have a different function, like a prototype method for Pizza objects, then you should have a separate Describe statement for that prototype method, along with any tests.
 
+Test: "It should return a Pizza object with three properties for size, toppings and price"
+Code: 
+```javascript
+const myPizza = new Pizza('medium', ["anchovies", "pineapple"]);
+```
+Expected Output: Pizza { toppings: ["anchovies", "pineapple"], size: "medium", 16.20 }
 
 
 ## License

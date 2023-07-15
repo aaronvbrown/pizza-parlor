@@ -12,8 +12,21 @@ class Pizza {
         this.size = size;
         this.toppings = toppings;
     }
-    
+    pricePizza() {
+        let basePrice = sizesAvailable[this.size];
+        let topppingsPrice = this.toppings.length * basePrice/10;
+        let salesTax = .08 * (basePrice + topppingsPrice);
+        let totalPrice = basePrice + topppingsPrice + salesTax;
+        totalPrice = totalPrice.toFixed(2);
+        
+        return totalPrice;
+    }
 };
 
 // User Interface Logic
+
+// tests for node
+let myPizza = new Pizza('medium', ["anchovies", "pineapple"]);
+console.log(myPizza.pricePizza());
+console.log("The price for your pizza is : $" + myPizza.pricePizza());
 
