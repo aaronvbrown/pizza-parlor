@@ -27,6 +27,7 @@ class Pizza {
 
 // tests for node
 let myPizza = new Pizza('medium', ["anchovies", "pineapple"]);
-console.log(myPizza.pricePizza());
 console.log("The price for your pizza is : $" + myPizza.pricePizza());
+let myPizza2 = new Pizza('large', ["anchovies", "pineapple", "pepperoni"]);
+console.log("The price for your pizza is : $" + myPizza2.pricePizza());
 

@@ -50,6 +50,12 @@ const myPizza = new Pizza('medium', ["anchovies", "pineapple"]);
 ```
 Expected Output: Pizza { toppings: ["anchovies", "pineapple"], size: "medium", 16.20 }
 
+Code: 
+```javascript
+const myPizza = new Pizza('medium', ["anchovies", "pineapple", "pepperoni"]);
+```
+Expected Output: Pizza { toppings: ["anchovies", "pineapple"], size: "large", 21.06 }
+
 
 ## License
 MIT License
