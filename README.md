@@ -36,7 +36,10 @@ This page intended to showcase object oriented javascript.
 Describe:  Pizza()
 
 Test: "It should return a Pizza object with two properties for toppings and size"
-Code: const myPizza = new Pizza(["anchovies", "pineapple"], "medium");
+Code: 
+```javascript
+const myPizza = new Pizza('medium', ["anchovies", "pineapple"]);
+```
 Expected Output: Pizza { toppings: ["anchovies", "pineapple"], size: "medium" }
 Keep in mind that the Describe statement is listed once, for a single function. If there are multiple pieces of functionality that your Pizza() constructor function handles, you should write multiple tests (as many as are needed) under the same Describe block. If you have a different function, like a prototype method for Pizza objects, then you should have a separate Describe statement for that prototype method, along with any tests.
 
