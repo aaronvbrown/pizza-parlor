@@ -5,7 +5,7 @@ const sizesAvailable = {
     'medium':   12.50,
     'large':    15.00
 };
-const toppingsAvailable = ['cheese', 'olives', 'mushrooms', 'onions', 'peppers', 'tomatoes', 'pineapple','pepperoni', 'sausage', 'ham'];
+const toppingsAvailable = ['olives', 'mushrooms', 'onions', 'peppers', 'tomatoes', 'pineapple','pepperoni', 'sausage', 'ham'];
 
 //class method
 // class Pizza {
@@ -40,6 +40,34 @@ Pizza.prototype.pricePizza = function() {
 
 
 // User Interface Logic
+// generate checkboxes for toppings
+
+//get the container that will hold the checkboxes
+function populateToppings () {
+    const toppingsContainer = document.getElementById('toppingsForm');
+    
+    toppingsAvailable.forEach((topping) => {
+        //create new checkbox element
+        const checkbox = document.createElement('input');
+        checkbox.type='checkbox';
+        checkbox.value=topping;
+    
+        //create label for checkbox
+        const label = document.createElement('label');
+        label.textContent = topping;
+
+        //create a break
+        const lineBreak = document.createElement('br');
+    
+        //append the checkbox, label and break to the container element
+        toppingsContainer.appendChild(checkbox);
+        toppingsContainer.appendChild(label);
+        toppingsContainer.appendChild(lineBreak);
+    });
+}
+
+
+
 
 // tests for node
 let myPizza = new Pizza('medium', ["anchovies", "pineapple"]);

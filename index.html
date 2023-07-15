@@ -6,11 +6,21 @@
     <script src="js/scripts.js"></script>
 </head>
 
-<body>
+<body onload = "populateToppings()">
     <h1>Order Your Pizza</h1>
-    <div>Choose your size</div>
-    <div>Pick your toppings</div>
-    <div id="userOrder" class="hidden">Your Order</div>
+    <label></label>
+    <button>Get Started</button>
+    <br>
+    <label for = sizeInput>Choose your size</label>
+    <select id="sizeInput">
+        <option value="small">Small</option>
+        <option value="medium">Medium</option>
+        <option value="large">Large</option>
+    </select>
+    <div id="toppings">Pick your toppings</div>
+    <form id="toppingsForm">
+    </form>
+    <div id="displayOrder">Your Order</div>
 
 </body>
 
