@@ -24,8 +24,19 @@ Keep in mind that the Describe statement is listed once, for a single function. 
 Keep in mind, you do not have to write tests for user interface Logic, which is any code that accesses or updates the DOM. Only write tests for your business logic. In the above example, the Pizza() constructor function is a part of the business logic.
 
 
-<!-- 
-this listener failed entirely.  Does it just not like the names?
+<!-- tests for node -->
+```javascript
+let myPizza = new Pizza('medium', ["anchovies", "pineapple"]);
+console.log("The price for your pizza is : $" + myPizza.pricePizza());
+let myPizza2 = new Pizza('large', ["anchovies", "pineapple", "pepperoni"]);
+console.log("The price for your pizza is : $" + myPizza2.pricePizza());
+let myPizza3 = new Pizza('small', ["anchovies", "pineapple", "pepperoni", "ham"]);
+console.log("The price for your pizza is : $" + myPizza3.pricePizza());
+```
+
+ 
+<!-- this listener failed entirely.  Does it just not like the names? -->
+```javascript
 window.addEventListener("load", function () {
     let updateBtn = document.getElementById("update");
     let displayOrder = document.getElementById("displayOrder");
@@ -35,4 +46,4 @@ window.addEventListener("load", function () {
         preventDefault();
     })
 }) 
--->
+```

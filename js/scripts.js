@@ -7,22 +7,6 @@ const sizesAvailable = {
 };
 const toppingsAvailable = ['olives', 'mushrooms', 'onions', 'peppers', 'tomatoes', 'pineapple', 'pepperoni', 'sausage', 'ham'];
 
-//class method
-// class Pizza {
-//     constructor(size = 'small', toppings = []) {
-//         this.size = size;
-//         this.toppings = toppings;
-//     }
-//     pricePizza() {
-//         let basePrice = sizesAvailable[this.size];
-//         let topppingsPrice = this.toppings.length * basePrice/10;
-//         let salesTax = .08 * (basePrice + topppingsPrice);
-//         let totalPrice = basePrice + topppingsPrice + salesTax;
-//         totalPrice = totalPrice.toFixed(2);
-//         return totalPrice;
-//     }
-// }
-
 //prototype method
 function Pizza(size, toppings) {
     this.size = size;
@@ -70,7 +54,7 @@ function populateToppings() {
 
 
 // this listener works.  All I really changed were the names and identifications
-window.addEventListener("load", function() {
+window.addEventListener("load", function () {
     let updateSize = document.getElementById("sizeInput");
     let updateOrderBtn = document.getElementById("orderButton");
     let order = document.getElementById("displayOrder");
@@ -82,7 +66,6 @@ window.addEventListener("load", function() {
             //check each checkbox, add checked toppings to orderToppings
             const checkbox = document.getElementById(topping);
             if (checkbox.checked) {
-                // console.log(topping)
                 orderToppings.push(topping);
             }
         })
@@ -98,11 +81,4 @@ window.addEventListener("load", function() {
 
 
 
-// tests for node
-// let myPizza = new Pizza('medium', ["anchovies", "pineapple"]);
-// console.log("The price for your pizza is : $" + myPizza.pricePizza());
-// let myPizza2 = new Pizza('large', ["anchovies", "pineapple", "pepperoni"]);
-// console.log("The price for your pizza is : $" + myPizza2.pricePizza());
-// let myPizza3 = new Pizza('small', ["anchovies", "pineapple", "pepperoni", "ham"]);
-// console.log("The price for your pizza is : $" + myPizza3.pricePizza());
 
