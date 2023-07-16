@@ -51,6 +51,7 @@ function populateToppings() {
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.value = topping;
+        checkbox.id = topping;
 
         //create label for checkbox
         const label = document.createElement('label');
@@ -66,25 +67,30 @@ function populateToppings() {
     });
 }
 
-// this listener failed entirely.  Does it just not like the names?
-// window.addEventListener("load", function () {
-//     let updateBtn = document.getElementById("update");
-//     let displayOrder = document.getElementById("displayOrder");
-    
-//     updateBtn.addEventListener("click", function () {
-//         displayOrder.removeAttribute("class");
-//         preventDefault();
 
-//     })
-
-// })
 
 // this listener works.  All I really changed were the names and identifications
 window.addEventListener("load", function() {
+    let updateSize = document.getElementById("sizeInput");
     let updateOrderBtn = document.getElementById("orderButton");
     let order = document.getElementById("displayOrder");
+    orderToppings = [];
 
     updateOrderBtn.addEventListener("click", function () {
+        orderToppings.length = 0;
+        toppingsAvailable.forEach((topping) => {
+            //check each checkbox, add checked toppings to orderToppings
+            const checkbox = document.getElementById(topping);
+            if (checkbox.checked) {
+                // console.log(topping)
+                orderToppings.push(topping);
+            }
+        })
+        let myPizza = new Pizza(updateSize.value, orderToppings);
+        console.log(myPizza);
+        console.log(myPizza.pricePizza());
+        order.append(`Your're ordering a ${myPizza.size} pizza with the following toppings: ${myPizza.toppings}.`);
+        order.append(`Your total is ${myPizza.pricePizza()}.`);
         order.removeAttribute("class");
     })
 })
@@ -93,10 +99,10 @@ window.addEventListener("load", function() {
 
 
 // tests for node
-let myPizza = new Pizza('medium', ["anchovies", "pineapple"]);
-console.log("The price for your pizza is : $" + myPizza.pricePizza());
-let myPizza2 = new Pizza('large', ["anchovies", "pineapple", "pepperoni"]);
-console.log("The price for your pizza is : $" + myPizza2.pricePizza());
-let myPizza3 = new Pizza('small', ["anchovies", "pineapple", "pepperoni", "ham"]);
-console.log("The price for your pizza is : $" + myPizza3.pricePizza());
+// let myPizza = new Pizza('medium', ["anchovies", "pineapple"]);
+// console.log("The price for your pizza is : $" + myPizza.pricePizza());
+// let myPizza2 = new Pizza('large', ["anchovies", "pineapple", "pepperoni"]);
+// console.log("The price for your pizza is : $" + myPizza2.pricePizza());
+// let myPizza3 = new Pizza('small', ["anchovies", "pineapple", "pepperoni", "ham"]);
+// console.log("The price for your pizza is : $" + myPizza3.pricePizza());
 

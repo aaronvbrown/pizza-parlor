@@ -22,3 +22,17 @@ Expected Output: Pizza { toppings: ["anchovies", "pineapple"], size: "medium" }
 Keep in mind that the Describe statement is listed once, for a single function. If there are multiple pieces of functionality that your Pizza() constructor function handles, you should write multiple tests (as many as are needed) under the same Describe block. If you have a different function, like a prototype method for Pizza objects, then you should have a separate Describe statement for that prototype method, along with any tests.
 
 Keep in mind, you do not have to write tests for user interface Logic, which is any code that accesses or updates the DOM. Only write tests for your business logic. In the above example, the Pizza() constructor function is a part of the business logic.
+
+
+<!-- 
+this listener failed entirely.  Does it just not like the names?
+window.addEventListener("load", function () {
+    let updateBtn = document.getElementById("update");
+    let displayOrder = document.getElementById("displayOrder");
+ 
+    updateBtn.addEventListener("click", function () {
+        displayOrder.removeAttribute("class");
+        preventDefault();
+    })
+}) 
+-->
