@@ -26,7 +26,7 @@ This page intended to showcase object oriented javascript.
 * install live server for vs code
 * open the repo in vs code
 * open index.htm in browser using live server
-* view the page via gitup pages here:  https://aaronvbrown.github.io/pizza-parlor/
+* view the page via gitup pages here:  https://aaronvbrown.gi thub.io/pizza-parlor/
 
 
 ## Known Bugs

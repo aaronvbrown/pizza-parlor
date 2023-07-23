@@ -57,7 +57,7 @@ function populateToppings() {
 window.addEventListener("load", function () {
     let updateSize = document.getElementById("sizeInput");
     let updateOrderBtn = document.getElementById("orderButton");
-    let order = document.getElementById("displayOrder");
+    let orderDisplayContainer = document.getElementById("displayOrder");
     orderToppings = [];
 
     updateOrderBtn.addEventListener("click", function () {
@@ -70,11 +70,19 @@ window.addEventListener("load", function () {
             }
         })
         let myPizza = new Pizza(updateSize.value, orderToppings);
-        console.log(myPizza);
-        console.log(myPizza.pricePizza());
-        order.append(`Your're ordering a ${myPizza.size} pizza with the following toppings: ${myPizza.toppings}.`);
-        order.append(`Your total is ${myPizza.pricePizza()}.`);
-        order.removeAttribute("class");
+        const lineBreak = document.createElement('br');
+        const para = document.createElement('p');
+        const ul = document.createElement('ul');
+
+        orderDisplayContainer.appendChild(lineBreak);
+        orderDisplayContainer.append(`Your'e ordering a ${myPizza.size} pizza.`);
+        orderDisplayContainer.appendChild(lineBreak);
+        orderDisplayContainer.append(`You've selected the following toppings:`)
+        orderDisplayContainer.appendChild(ul);
+        orderDisplayContainer.append(`${myPizza.toppings}.`);
+        orderDisplayContainer.appendChild(lineBreak);
+        orderDisplayContainer.append(`Your total is ${myPizza.pricePizza()}.`);
+        orderDisplayContainer.removeAttribute("class");
     })
 })
 
