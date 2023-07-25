@@ -1,10 +1,5 @@
 // Business Logic
 
-const sizesAvailable = {
-    'small': 10.00,
-    'medium': 12.50,
-    'large': 15.00
-};
 
 //prototype method
 function Pizza(size, toppings) {
@@ -13,6 +8,11 @@ function Pizza(size, toppings) {
 }
 
 Pizza.prototype.pricePizza = function () {
+    let sizesAvailable = {
+        'small': 10.00,
+        'medium': 12.50,
+        'large': 15.00
+    };
     let basePrice = sizesAvailable[this.size];
     let topppingsPrice = this.toppings.length * basePrice / 10;
     let salesTax = .08 * (basePrice + topppingsPrice);
@@ -36,7 +36,7 @@ function populateToppings() {
         checkbox.type = 'checkbox';
         checkbox.value = topping;
         checkbox.id = topping;
-
+        
         //create label for checkbox
         const label = document.createElement('label');
         label.textContent = topping;
@@ -55,6 +55,11 @@ function populateToppings() {
 
 // this listener works.  All I really changed were the names and identifications
 window.addEventListener("load", function () {
+    let sizesAvailable = {
+        'small': 10.00,
+        'medium': 12.50,
+        'large': 15.00
+    };
     const toppingsAvailable = ['olives', 'mushrooms', 'onions', 'peppers', 'tomatoes', 'pineapple', 'pepperoni', 'sausage', 'ham'];
     let updateSize = document.getElementById("sizeInput");
     let updateOrderBtn = document.getElementById("orderButton");
