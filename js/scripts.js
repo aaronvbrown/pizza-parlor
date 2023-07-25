@@ -5,7 +5,6 @@ const sizesAvailable = {
     'medium': 12.50,
     'large': 15.00
 };
-const toppingsAvailable = ['olives', 'mushrooms', 'onions', 'peppers', 'tomatoes', 'pineapple', 'pepperoni', 'sausage', 'ham'];
 
 //prototype method
 function Pizza(size, toppings) {
@@ -29,7 +28,8 @@ Pizza.prototype.pricePizza = function () {
 function populateToppings() {
     //get the container that will hold the checkboxes
     const toppingsContainer = document.getElementById('toppingsForm');
-
+    const toppingsAvailable = ['olives', 'mushrooms', 'onions', 'peppers', 'tomatoes', 'pineapple', 'pepperoni', 'sausage', 'ham'];
+    
     toppingsAvailable.forEach((topping) => {
         //create new checkbox element
         const checkbox = document.createElement('input');
@@ -40,10 +40,10 @@ function populateToppings() {
         //create label for checkbox
         const label = document.createElement('label');
         label.textContent = topping;
-
+        
         //create a break
         const lineBreak = document.createElement('br');
-
+        
         //append the checkbox, label and break to the container element
         toppingsContainer.appendChild(checkbox);
         toppingsContainer.appendChild(label);
@@ -55,6 +55,7 @@ function populateToppings() {
 
 // this listener works.  All I really changed were the names and identifications
 window.addEventListener("load", function () {
+    const toppingsAvailable = ['olives', 'mushrooms', 'onions', 'peppers', 'tomatoes', 'pineapple', 'pepperoni', 'sausage', 'ham'];
     let updateSize = document.getElementById("sizeInput");
     let updateOrderBtn = document.getElementById("orderButton");
     let orderDisplayContainer = document.getElementById("displayOrder");
