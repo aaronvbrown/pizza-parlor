@@ -7,13 +7,16 @@ function Pizza(size, toppings) {
     this.toppings = toppings;
 }
 
+Pizza.prototype.sizesAvailable = {
+    'small': 10.00,
+    'medium': 12.50,
+    'large': 15.00
+};
+
+Pizza.prototype.toppingsAvailable = ['olives', 'mushrooms', 'onions', 'peppers', 'tomatoes', 'pineapple', 'pepperoni', 'sausage', 'ham'];
+
 Pizza.prototype.pricePizza = function () {
-    let sizesAvailable = {
-        'small': 10.00,
-        'medium': 12.50,
-        'large': 15.00
-    };
-    let basePrice = sizesAvailable[this.size];
+    let basePrice = this.sizesAvailable[this.size];
     let topppingsPrice = this.toppings.length * basePrice / 10;
     let salesTax = .08 * (basePrice + topppingsPrice);
     let totalPrice = basePrice + topppingsPrice + salesTax;
@@ -28,9 +31,8 @@ Pizza.prototype.pricePizza = function () {
 function populateToppings() {
     //get the container that will hold the checkboxes
     const toppingsContainer = document.getElementById('toppingsForm');
-    const toppingsAvailable = ['olives', 'mushrooms', 'onions', 'peppers', 'tomatoes', 'pineapple', 'pepperoni', 'sausage', 'ham'];
     
-    toppingsAvailable.forEach((topping) => {
+    Pizza.prototype.toppingsAvailable.forEach((topping) => {
         //create new checkbox element
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
@@ -52,15 +54,7 @@ function populateToppings() {
 }
 
 
-
-// this listener works.  All I really changed were the names and identifications
 window.addEventListener("load", function () {
-    let sizesAvailable = {
-        'small': 10.00,
-        'medium': 12.50,
-        'large': 15.00
-    };
-    const toppingsAvailable = ['olives', 'mushrooms', 'onions', 'peppers', 'tomatoes', 'pineapple', 'pepperoni', 'sausage', 'ham'];
     let updateSize = document.getElementById("sizeInput");
     let updateOrderBtn = document.getElementById("orderButton");
     let orderDisplayContainer = document.getElementById("displayOrder");
@@ -68,7 +62,7 @@ window.addEventListener("load", function () {
 
     updateOrderBtn.addEventListener("click", function () {
         orderToppings.length = 0;
-        toppingsAvailable.forEach((topping) => {
+        Pizza.prototype.toppingsAvailable.forEach((topping) => {
             //check each checkbox, add checked toppings to orderToppings
             const checkbox = document.getElementById(topping);
             if (checkbox.checked) {
@@ -81,13 +75,13 @@ window.addEventListener("load", function () {
         const ul = document.createElement('ul');
 
         orderDisplayContainer.appendChild(lineBreak);
-        orderDisplayContainer.append(`Your'e ordering a ${myPizza.size} pizza.`);
+        orderDisplayContainer.append(`You're ordering a ${myPizza.size} pizza.`);
         orderDisplayContainer.appendChild(lineBreak);
         orderDisplayContainer.append(`You've selected the following toppings:`)
         orderDisplayContainer.appendChild(ul);
         orderDisplayContainer.append(`${myPizza.toppings}.`);
         orderDisplayContainer.appendChild(lineBreak);
-        orderDisplayContainer.append(`Your total is ${myPizza.pricePizza()}.`);
+        orderDisplayContainer.append(`Your total is $${myPizza.pricePizza()}.`);
         orderDisplayContainer.removeAttribute("class");
     })
 })
